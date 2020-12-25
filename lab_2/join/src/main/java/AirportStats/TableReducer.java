@@ -8,7 +8,7 @@ import java.io.IOException;
 public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
     public  void reduce(AirportKey key, Iterable<Text> valuse, Context context) throws IOException {
         int count = 0;
-        
-        double min, max;
+
+        double min, max, sum = 0;
     }
 }
