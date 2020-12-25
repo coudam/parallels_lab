@@ -27,6 +27,6 @@ public class AirportsStatsRun {
         job.setJobName("Stat");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, AirportTableMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, AirportTableMapper.class);
-        FileOutputFormat.setOutputPath(jod, );
+        FileOutputFormat.setOutputPath(job, new Path());
     }
 }
