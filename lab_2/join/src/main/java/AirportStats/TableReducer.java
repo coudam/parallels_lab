@@ -15,6 +15,12 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
 
         while (i.hasNext()) {
             double value = Double.parseDouble(i.next().toString());
+            if (value > max) max = value;
+            if (value < min) min = value;
+            count ++;
+            sum += value;
         }
+
+        if (count == 0)
     }
 }
