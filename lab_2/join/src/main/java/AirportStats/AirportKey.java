@@ -39,5 +39,7 @@ public class AirportKey implements WritableComparable<AirportKey> {
         else return this.table.compareTo(o.table);
     }
 
-    public Text
+    public Text getId(){
+        return this.Id;
+    }
 }
