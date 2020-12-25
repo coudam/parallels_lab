@@ -11,6 +11,6 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
         int count = 0;
         Iterator<Text> i = values.iterator();
         Text first = new Text(i.next());
-        double min, max, sum = 0;
+        double min = Double.parseDouble(first.toString()), max = min, sum = 0;
     }
 }
