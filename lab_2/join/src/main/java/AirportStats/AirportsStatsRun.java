@@ -21,5 +21,6 @@ public class AirportsStatsRun {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "join");
+        
     }
 }
