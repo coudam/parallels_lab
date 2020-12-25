@@ -30,7 +30,7 @@ public class AirportsStatsRun {
         Path poutputPath = new Path(args[2]);
         FileOutputFormat.setOutputPath(job, poutputPath);
         job.setPartitionerClass(TablePartitioner.class);
-        job.setGroupingComparatorClass();
+        job.setGroupingComparatorClass(Comparator.class);
         job.setReducerClass();
         job.setMapOutputKeyClass(AirportKey.class);
         job.setOutputKeyClass(Text.class);
