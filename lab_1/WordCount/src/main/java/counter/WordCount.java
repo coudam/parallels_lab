@@ -1,67 +1,23 @@
-package Join;
+package counter;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-
-import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configuratio.n;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class WritableComparator implements RawComparator {
-  @Override
-  public int compare(Object o1, Object o2) {
-    return 0;
-  }
-
-
-  public static class Pair<F, S> {
-    private F first;
-    private S second;
-
-    public Pair() {
-      this.first = new F();
-      this.second = new S();
-    }
-
-    public Pair(F first, S second) {
-      this.first = first;
-      this.second = second;
-    }
-
-    public void setFirst(F first) {
-      this.first = first;
-    }
-
-    public void setSecond(S second) {
-      this.second = second;
-    }
-
-    public F getFirst() {
-      return first;
-    }
-
-    public S getSecond() {
-      return second;
-    }
-  }
-
-}
-
-
-public class Join {
+public class WordCount {
   public static class TokenizerMapper
        extends Mapper<Object, Text, Text, IntWritable>{
 
-    private final static IntWritable one = new IntWritable(1);
+    private final static IntWritable One = new IntWritable(1);
     private Text word = new Text();
 
     public void map(Object key, Text value, Context context
@@ -70,13 +26,9 @@ public class Join {
       StringTokenizer itr = new StringTokenizer(value.toString().replaceAll("[\\.$|,|;|'<>?!':`~^]", ""));
       while (itr.hasMoreTokens()) {
         word.set(itr.nextToken());
-        context.write(word, one);
+        context.write(word, One);
       }
     }
-  }
-
-  public abstract class Partitioner<KEY, VALUE> {
-    public abstract int getPartition(KEY key, VALUE value, int numPartitions);
   }
 
   public static class IntSumReducer
@@ -97,8 +49,8 @@ public class Join {
 
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
-    Job job = Job.getInstance(conf, "join");
-    job.setJarByClass(Join.class);
+    Job job = Job.getInstance(conf, "word count");
+    job.setJarByClass(WordCount.class);
     job.setMapperClass(TokenizerMapper.class);
     job.setCombinerClass(IntSumReducer.class);
     job.setReducerClass(IntSumReducer.class);
