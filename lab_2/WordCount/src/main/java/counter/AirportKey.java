@@ -1,2 +1,4 @@
-package counter;public class AirportKey {
+package counter;
+
+public class AirportKey {
 }
