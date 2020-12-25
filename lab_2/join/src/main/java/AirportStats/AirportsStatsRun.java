@@ -24,6 +24,6 @@ public class AirportsStatsRun {
         Job job = Job.getInstance(conf, "join");
         job.setJarByClass(AirportsStatsRun.class);
         job.setJobName("Stat");
-        MultipleInputs.addInputPath(job, new Path(args[0]), );
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, );
     }
 }
