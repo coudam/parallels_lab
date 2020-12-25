@@ -8,7 +8,7 @@ import java.io.IOException;
 public class TableMapper extends Mapper<LongWritable, Text, AirportKey, Text> {
 
     @Override
-    protected void map(LongWritable key, Text value, Context context) throws IOException{
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String id_airpirt[] = CSVReader.readAirports(value);
         AirportKey akey = new AirportKey(id_airpirt[0].replace("/", ""), 0);
         context.write(akey, new Text(id_airpirt[1]));
