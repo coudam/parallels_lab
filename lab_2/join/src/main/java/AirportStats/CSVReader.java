@@ -4,7 +4,7 @@ import org.apache.hadoop.io.Text;
 
 
 public class CSVReader {
-    public static String[] read(Text t){
+    public static String[] readFlight(Text t){
         return t.toString().split(",");
     }
 
