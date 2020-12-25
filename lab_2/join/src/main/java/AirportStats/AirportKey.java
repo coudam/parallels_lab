@@ -3,6 +3,8 @@ package AirportStats;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.WritableComparator;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class AirportKey implements WritableComparable<AirportKey> {
     private Text Id;
     private IntWritable table;
 
-    public AirportKey() {
+    public AirportKey(WritableComparator arg1) {
         this.Id = new Text();
         this.table = new IntWritable();
     }
