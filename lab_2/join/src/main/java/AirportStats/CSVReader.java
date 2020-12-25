@@ -4,11 +4,11 @@ import org.apache.hadoop.io.Text;
 
 
 public class CSVReader {
-    public static String[] readWithSplit(Text t){
+    public static String[] read(Text t){
         return t.toString().split(",");
     }
 
-    public static String[] readWithSpacialSplit(Text t){
+    public static String[] readAirports(Text t){
         return t.toString().split(",\"()!=@#$?");
     }
 
