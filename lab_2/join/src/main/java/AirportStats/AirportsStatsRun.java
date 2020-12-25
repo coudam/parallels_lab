@@ -14,6 +14,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
@@ -21,6 +22,8 @@ public class AirportsStatsRun {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "join");
-        
+        job.setJarByClass(AirportsStatsRun.class);
+        job.setJobName("Stat");
+        MultipleInputs.addInputPath(job, new Path(args[0]), );
     }
 }
