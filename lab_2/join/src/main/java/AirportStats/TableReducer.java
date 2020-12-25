@@ -21,6 +21,6 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
             sum += value;
         }
 
-        if (count == 0)
+        if (count != 0) context.write(new Text("min value = " + min + " ;\nmax value = " + max + " ;\naverage value = " + sum / count));
     }
 }
