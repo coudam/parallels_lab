@@ -28,6 +28,6 @@ public class AirportsStatsRun {
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, AirportTableMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, AirportTableMapper.class);
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
-        job.Set
+        job.set
     }
 }
