@@ -5,4 +5,8 @@ import org.apache.hadoop.mapreduce.Partitioner;
 
 public class TablePartitioner extends Partitioner<AirportKey, Text>  {
 
+    @Override
+    public int getPartition(AirportKey airportKey, Text text, int i) {
+        return 0;
+    }
 }
