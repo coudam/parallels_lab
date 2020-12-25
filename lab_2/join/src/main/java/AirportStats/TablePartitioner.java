@@ -1,5 +1,8 @@
 package AirportStats;
 
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Partitioner;
+
 public class TablePartitioner extends Partitioner<AirportKey, Text>  {
 
 }
