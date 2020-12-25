@@ -9,8 +9,8 @@ public class AirportTableMapper extends Mapper<LongWritable, Text, AirportKey, T
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String[] id_airpirt = CSVReader.readAirports(value);
-        AirportKey akey = new AirportKey(id_airpirt[0].replace("/", ""), 0);
-        context.write(akey, new Text(id_airpirt[1]));
+        String[] id_airport = CSVReader.readAirports(value);
+        AirportKey akey = new AirportKey(id_airport[0].replace("\"", ""), 0);
+        context.write(akey, new Text(id_airport[1]));
     }
 }

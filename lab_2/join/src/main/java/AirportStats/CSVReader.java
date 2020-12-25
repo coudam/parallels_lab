@@ -8,11 +8,5 @@ public class CSVReader {
         return t.toString().split(",");
     }
 
-    public static String[] readAirports(Text t){
-        return t.toString().split(",\"()!=@#$?");
-    }
-
-    public static String readWithoutSlash(String t){
-        return t.toString().replace("/","");
-    }
+    public static String[] readAirports(Text t) { return t.toString().split(",");}
 }

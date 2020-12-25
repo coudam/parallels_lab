@@ -10,11 +10,17 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
     public  void reduce(AirportKey key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         int count = 0;
         Iterator<Text> i = values.iterator();
-        Text first = new Text(i.next());
-        double min = Double.parseDouble(first.toString()), max = min, sum = 0;
+        i.next();
+//        Text first = new Text(i.next());
+        double min = Double.MAX_VALUE, max = 0, sum = 0, value;
 
         while (i.hasNext()) {
-            double value = Double.parseDouble(i.next().toString());
+            try{
+                value = Double.parseDouble(i.next().toString());
+            } catch(NumberFormatException ex){
+                continue;
+            }
+
             if (value > max) max = value;
             if (value < min) min = value;
             count ++;
