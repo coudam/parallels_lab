@@ -9,6 +9,7 @@ public class TableMapper extends Mapper<LongWritable, Text, AirportKey, Text> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException{
-        String id_airpirt[] = CSVReader.readAirports();
+        String id_airpirt[] = CSVReader.readAirports(value);
+        
     }
 }
