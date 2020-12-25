@@ -44,4 +44,4 @@ public class AirportKey implements WritableComparable<AirportKey> {
     }
 }
 
-public class 
+public class keyComp extends 
