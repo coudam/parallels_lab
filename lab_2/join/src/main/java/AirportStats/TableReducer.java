@@ -10,7 +10,7 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
     public  void reduce(AirportKey key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         int count = 0;
         Iterator<Text> i = values.iterator();
-        i.next();
+        Text t = new Text(i.next());
 //        Text first = new Text(i.next());
         double min = Double.MAX_VALUE, max = 0, sum = 0, value;
 
@@ -20,13 +20,12 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
             } catch(NumberFormatException ex){
                 continue;
             }
-
             if (value > max) max = value;
             if (value < min) min = value;
             count ++;
             sum += value;
         }
 
-        if (count != 0) context.write(new Text("Stats: "),new Text("min value = " + min + " ;\nmax value = " + max + " ;\naverage value = " + sum / count));
+        if (count != 0) context.write(t ,new Text("min value = " + min + " ; max value = " + max + " ; average value = " + sum / count));
     }
 }
