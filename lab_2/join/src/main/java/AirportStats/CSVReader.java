@@ -12,7 +12,7 @@ public class CSVReader {
         return t.toString().split(",\"()!=@#$?");
     }
 
-    public static String readWithoutSlash(Text t){
+    public static String readWithoutSlash(String t){
         return t.toString().replace("/","");
     }
 }
