@@ -43,3 +43,4 @@ public class AirportKey implements WritableComparable<AirportKey> {
         return this.Id;
     }
 }
+
