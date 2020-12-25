@@ -1,2 +1,4 @@
-package AirportStats;public class FlightTableMapper {
+package AirportStats;
+
+public class FlightTableMapper {
 }
