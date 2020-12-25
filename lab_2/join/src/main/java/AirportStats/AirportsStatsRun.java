@@ -27,7 +27,17 @@ public class AirportsStatsRun {
         job.setJobName("Stat");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, AirportTableMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, AirportTableMapper.class);
-        FileOutputFormat.setOutputPath(job, new Path(args[2]));
-        job.set
+        Path poutputPath = new Path(args[2]);
+        FileOutputFormat.setOutputPath(job, poutputPath);
+        job.setPartitionerClass(TablePartitioner.class);
+        job.setGroupingComparatorClass();
+        job.setReducerClass();
+        job.setMapOutputKeyClass();
+        job.setOutputKeyClass();
+        job.setOutputValueClass();
+        job.setNumReduceTasks(2);
+        poutputPath.getFileSystem(conf);
+        job.waitForCompletion(true);
+        System.exit(0);
     }
 }
