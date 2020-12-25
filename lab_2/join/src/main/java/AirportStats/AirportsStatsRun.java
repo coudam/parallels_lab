@@ -31,7 +31,7 @@ public class AirportsStatsRun {
         FileOutputFormat.setOutputPath(job, poutputPath);
         job.setPartitionerClass(TablePartitioner.class);
         job.setGroupingComparatorClass(Comparator.class);
-        job.setReducerClass();
+        job.setReducerClass(TableReducer.class);
         job.setMapOutputKeyClass(AirportKey.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
