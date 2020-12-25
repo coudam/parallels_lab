@@ -1,0 +1,8 @@
+AirportStats/AirportsStatsRun.class
+AirportStats/FlightTableMapper.class
+AirportStats/AirportTableMapper.class
+AirportStats/TableReducer.class
+AirportStats/CSVReader.class
+AirportStats/TablePartitioner.class
+AirportStats/Comparator.class
+AirportStats/AirportKey.class
