@@ -1,5 +1,5 @@
 package AirportStats;
 
-public class TablePartitioner {
+public class TablePartitioner extends Partitioner<AirportKey, Text>  {
 
 }
