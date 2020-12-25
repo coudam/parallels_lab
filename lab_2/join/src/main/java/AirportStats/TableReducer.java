@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
-    public  void reduce(AirportKey key, Iterable<Text> values, Context context) throws IOException {
+    public  void reduce(AirportKey key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         int count = 0;
         Iterator<Text> i = values.iterator();
         Text first = new Text(i.next());
@@ -21,6 +21,6 @@ public class TableReducer extends Reducer<AirportKey, Text, Text, Text> {
             sum += value;
         }
 
-        if (count != 0) context.write(new Text("min value = " + min + " ;\nmax value = " + max + " ;\naverage value = " + sum / count));
+        if (count != 0) context.write(new Text("Stats: "),new Text("min value = " + min + " ;\nmax value = " + max + " ;\naverage value = " + sum / count));
     }
 }
