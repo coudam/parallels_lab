@@ -8,7 +8,6 @@ public class Comparator extends WritableComparator {
     public int compare(WritableComparator arg1, WritableComparator arg2){
         AirportKey key1 = new AirportKey(arg1);
         AirportKey key2 = new AirportKey(arg2);
-        return key1.getId()
-
+        return key1.getId().compareTo(key2.getId());
     }
 }
