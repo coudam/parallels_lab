@@ -1,4 +1,4 @@
-package counter;
+package ;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
