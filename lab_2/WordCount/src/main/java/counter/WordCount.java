@@ -1,4 +1,4 @@
-package AirportTrac;
+package counter;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
